@@ -37,13 +37,15 @@
   }
 }
 
+input {
+  padding: 5px;
+}
+
 button {
   cursor: pointer;
 }
 
 .user {
-  /* background-color: #fff; */
-  /* color: black; */
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -51,8 +53,14 @@ button {
   margin: 1rem;
   padding: 1rem;
   width: 300px;
+  border-radius: 5px;
 }
 
 .user button {
   align-items: center;
+}
+
+.add-user-btn {
+  font-size: 1rem;
+  padding: 3px;
 }

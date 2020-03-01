@@ -31,6 +31,8 @@ function App() {
     if (data.success) {
       await fetchUsers()
     }
+    setFirstName('')
+    setLastName('')
   }
 
   const deleteUser = async (id) => {
@@ -55,6 +57,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h3>Add users to the list</h3>
         <form onSubmit={addUser}>
           <input
             type='text'
@@ -68,7 +71,7 @@ function App() {
             placeholder='last name'
             onChange={(e) => setLastName(e.target.value)}
           />
-          <button>Add User</button>
+          <button className='add-user-btn'>Add</button>
         </form>
         <h3>Users</h3>
         <ul>

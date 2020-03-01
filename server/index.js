@@ -14,12 +14,15 @@ const users = require('./routes/users')
 const app = express()
 
 app.use(express.json())
+app.use(cors())
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'))
+}
 
 app.use('/api/v1/users', users)
 
 const PORT = process.env.PORT || 4000
-
-app.use(cors())
 
 app.get('/', (req, res) => {
   res.send({msg:'hello world'})

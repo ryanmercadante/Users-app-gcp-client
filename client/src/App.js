@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-const localhost = 'http://localhost:4000/api/v1/users'
-const api = 'https://api-dot-mernongae.appspot.com/api/v1/users'
-
 function App() {
   const [users, setUsers] = useState([])
   const [firstName, setFirstName] = useState()
   const [lastName, setLastName] = useState()
 
   const fetchUsers = async () => {
-    const res = await fetch(localhost)
+    const res = await fetch('https://api-dot-mernongae.appspot.com/api/v1/users')
     const data = await res.json()
     setUsers(data.data)
   }
 
   const addUser = async (e) => {
     e.preventDefault()
-    const res = await fetch(localhost, {
+    const res = await fetch('https://api-dot-mernongae.appspot.com/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +33,7 @@ function App() {
   }
 
   const deleteUser = async (id) => {
-    const res = await fetch(`${localhost}/${id}`, {
+    const res = await fetch(`https://api-dot-mernongae.appspot.com/api/v1/users/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

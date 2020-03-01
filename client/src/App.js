@@ -28,7 +28,24 @@ function App() {
     })
     const data = await res.json()
     console.log('data', data)
-    await fetchUsers()
+    if (data.success) {
+      await fetchUsers()
+    }
+  }
+
+  const deleteUser = async (id) => {
+    const res = await fetch(`${localhost}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id })
+    })
+    const data = await res.json()
+    console.log('data', data)
+    if (data.success) {
+      await fetchUsers()
+    }
   }
 
   useEffect(() => {
@@ -57,7 +74,10 @@ function App() {
         <ul>
           {
             users.map(user => (
-              <li key={user._id}>{user.firstName} {user.lastName}</li>
+              <div key={user._id} className='user'>
+                <li>{user.firstName} {user.lastName}</li>
+                <button onClick={() => deleteUser(user._id)}>X</button>
+              </div>
             ))
           }
         </ul>

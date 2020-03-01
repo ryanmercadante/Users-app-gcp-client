@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  cursor: pointer;
+}
+
+.user {
+  /* background-color: #fff; */
+  /* color: black; */
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  border: 1px solid white;
+  margin: 1rem;
+  padding: 1rem;
+  width: 300px;
+}
+
+.user button {
+  align-items: center;
+}

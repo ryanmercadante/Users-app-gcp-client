@@ -1,2 +1,4 @@
 /node_modules
 /config/config.env
+env_vars.yaml
+.DS_Store
